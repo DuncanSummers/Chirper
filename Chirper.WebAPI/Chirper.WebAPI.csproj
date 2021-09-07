@@ -207,6 +207,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,6 +306,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chirper.Models\Chirper.Models.csproj">
+      <Project>{45026B7F-6FDC-40EE-8932-744A6A12645C}</Project>
+      <Name>Chirper.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chirper.Services\Chirper.Services.csproj">
+      <Project>{1F695CBC-905A-4CDF-9EFA-3E63EED32B0B}</Project>
+      <Name>Chirper.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
