@@ -61,6 +61,10 @@
     <Compile Include="CommentAdd.cs" />
     <Compile Include="CommentListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplyCreate.cs" />
+    <Compile Include="ReplyDetail.cs" />
+    <Compile Include="ReplyEdit.cs" />
+    <Compile Include="ReplyList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
