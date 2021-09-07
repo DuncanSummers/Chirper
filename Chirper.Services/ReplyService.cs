@@ -22,12 +22,11 @@ namespace Chirper.Services
             {
                 AuthorId = _authorId,
                 Text = model.Text,
-                CommentId = model.CommentId,
-                Comment = model.Comment
+                CommentId = model.CommentId
             };
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Reply.Add(entity);
+                ctx.Replies.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
@@ -75,7 +74,7 @@ namespace Chirper.Services
             {
                 var entity =
                     ctx
-                    .Repliess
+                    .Replies
                     .Single(e => e.ReplyId == model.ReplyId && e.AuthorId == _authorId);
 
                 entity.Text = model.Text;

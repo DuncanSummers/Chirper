@@ -1,5 +1,6 @@
 ﻿using Chirper.Models;
 using Chirper.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Chirper.WebAPI.Controllers
     {
         private ReplyService CreateReplyService()
         {
-            var authorId = Guid.Parse(Author.Identity.GetAuthorId());
+            var authorId = Guid.Parse(User.Identity.GetUserId());
             var replyService = new ReplyService(authorId);
             return replyService;
         }

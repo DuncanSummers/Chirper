@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using Chirper.WebAPI.Models;
 using Chirper.WebAPI.Providers;
 using Chirper.WebAPI.Results;
+using Chirper.Data;
 
 namespace Chirper.WebAPI.Controllers
 {
