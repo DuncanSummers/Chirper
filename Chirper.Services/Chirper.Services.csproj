@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chirper.Data\Chirper.Data.csproj">
+      <Project>{e3a96e4a-3e16-45b3-87d1-99986ef8df66}</Project>
+      <Name>Chirper.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chirper.Models\Chirper.Models.csproj">
+      <Project>{45026b7f-6fdc-40ee-8932-744a6a12645c}</Project>
+      <Name>Chirper.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
