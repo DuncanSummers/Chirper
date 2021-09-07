@@ -38,7 +38,7 @@ namespace Chirper.Data
 
         public DbSet<Comment> Comments { get; set; }
 
-        public DbSet<Replies> Replies { get; set; }
+        public DbSet<Reply> Replies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -47,7 +47,7 @@ namespace Chirper.Data
                 .Remove<PluralizingTableNameConvention>();
 
             modelBuilder
-                .Conventions
+                .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
