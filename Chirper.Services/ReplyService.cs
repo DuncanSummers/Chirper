@@ -44,28 +44,28 @@ namespace Chirper.Services
                             {
                                 ReplyId = e.ReplyId,
                                 Text = e.Text,
-                                CommentId = e.CommentId,
-                                Comment = e.Comment
+                                CommentId = e.CommentId
                             }
                             );
                 return query.ToArray();
             }
         }
 
-        public ReplyDetail GetReplyById(int id)
+        public IEnumerable<ReplyList> GetReplyById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx.Replies
-                    .Single(e => e.ReplyId == id && e.AuthorId == _authorId);
-                return new ReplyDetail
-                {
-                    ReplyId = entity.ReplyId,
-                    Text = entity.Text,
-                    CommentId = entity.CommentId,
-                    Comment = entity.Comment,
-                };
+                    .Where(e => e.CommentId == id)
+                    .Select(
+                        e=> new ReplyList
+                        {
+                            ReplyId = e.ReplyId,
+                            Text = e.Text,
+                            CommentId = e.CommentId
+                        });
+                return entity.ToArray();
             }
         }
         public bool UpdateReply(ReplyEdit model)

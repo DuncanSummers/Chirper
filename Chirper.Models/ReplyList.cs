@@ -13,10 +13,6 @@ namespace Chirper.Models
 
         public string Text { get; set; }
 
-        public Guid AuthorId { get; set; }
-
         public int CommentId { get; set; }
-
-        public virtual Comment Comment { get; set; }
     }
 }
