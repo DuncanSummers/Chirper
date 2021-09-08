@@ -48,6 +48,7 @@ namespace Chirper.Services
                                 {
                                     PostId = e.PostId,
                                     Title = e.Title,
+                                    Text = e.Text
                                 }
                         );
 

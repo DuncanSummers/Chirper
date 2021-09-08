@@ -11,9 +11,8 @@ namespace Chirper.Models
 {
     public class ReplyCreate
     {
-        
         [Required]
-        [MaxLength(281, ErrorMessage ="Too many words to reply. Shorten your reply.")]
+        [MaxLength(281, ErrorMessage = "Too many words to reply. Shorten your reply.")]
         public string Text { get; set; }
         [Required]
         [ForeignKey(nameof(Comment))]
