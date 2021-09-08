@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using Chirper.WebAPI.Models;
+using Chirper.Data;
 
 namespace Chirper.WebAPI.Providers
 {

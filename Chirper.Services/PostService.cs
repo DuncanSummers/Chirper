@@ -1,6 +1,5 @@
 ﻿using Chirper.Data;
 using Chirper.Models;
-using Chirper.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,6 +48,7 @@ namespace Chirper.Services
                                 {
                                     PostId = e.PostId,
                                     Title = e.Title,
+                                    Text = e.Text
                                 }
                         );
 

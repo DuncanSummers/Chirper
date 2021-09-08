@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -38,7 +39,7 @@ namespace Chirper.Data
 
         public DbSet<Comment> Comments { get; set; }
 
-        public DbSet<Replies> Replies { get; set; }
+        public DbSet<Reply> Replies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -47,7 +48,7 @@ namespace Chirper.Data
                 .Remove<PluralizingTableNameConvention>();
 
             modelBuilder
-                .Conventions
+                .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
         }
@@ -57,6 +58,11 @@ namespace Chirper.Data
             public IdentityUserLoginConfiguration()
             {
                 HasKey(iul => iul.UserId);
+            }
+
+            internal IConvention[] Add(IdentityUserRoleConfiguration identityUserRoleConfiguration)
+            {
+                throw new NotImplementedException();
             }
         }
 
