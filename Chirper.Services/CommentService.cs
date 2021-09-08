@@ -48,7 +48,18 @@ namespace Chirper.Services
                 return  query.ToArray();
             }
         }
-
+        public bool EditComment(CommentEdit edit)
+          {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.Id == edit.CommentId);
+                entity.Text = edit.Text;
+                return ctx.SaveChanges() == 1;
+            }
+          }
         public bool DeleteComment(int commentId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -57,7 +68,6 @@ namespace Chirper.Services
                     ctx
                         .Comments
                         .Single(e => e.Id == commentId && e.UserId == _userId);
-
                 ctx.Comments.Remove(entity);
 
                 return ctx.SaveChanges() == 1;

@@ -34,6 +34,18 @@ namespace Chirper.WebAPI.Controllers
                 return InternalServerError();
             return Ok();
         }
+        public IHttpActionResult Put(CommentEdit comment)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateCommentService();
+
+            if (!service.EditComment(comment))
+                return InternalServerError();
+
+            return Ok();
+        }
 
         public IHttpActionResult Delete(int id)
         {
