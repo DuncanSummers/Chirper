@@ -48,5 +48,20 @@ namespace Chirper.Services
                 return  query.ToArray();
             }
         }
+
+        public bool DeleteComment(int commentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.Id == commentId && e.UserId == _userId);
+
+                ctx.Comments.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
