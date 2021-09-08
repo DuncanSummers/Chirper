@@ -30,7 +30,7 @@ namespace Chirper.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<CommentListItem> GetCommentsByPostID(int id)
+        public  IEnumerable<CommentListItem> GetCommentsByPostID(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -45,7 +45,7 @@ namespace Chirper.Services
                             Text = e.Text
                         }
                     );
-                return query.ToArray();
+                return  query.ToArray();
             }
         }
     }
