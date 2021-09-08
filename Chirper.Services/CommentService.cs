@@ -48,5 +48,18 @@ namespace Chirper.Services
                 return  query.ToArray();
             }
         }
+        public bool EditComment(CommentEdit edit)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.Id == edit.CommentId);
+                entity.Text = edit.Text;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
