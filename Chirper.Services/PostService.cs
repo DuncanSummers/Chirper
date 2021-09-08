@@ -24,7 +24,7 @@ namespace Chirper.Services
                 {
                     AuthorId = _userId,
                     Title = model.Title,
-                    Text = model.Text,
+                    Text = model.Text
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -48,6 +48,7 @@ namespace Chirper.Services
                                 {
                                     PostId = e.PostId,
                                     Title = e.Title,
+                                    Text=e.Text
                                 }
                         );
 

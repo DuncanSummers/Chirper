@@ -26,7 +26,7 @@ namespace Chirper.WebAPI.Controllers
             var replies = replyService.GetReplies();
             return Ok(replies);
         }
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult GetById(int id)
         {
             ReplyService replyService = CreateReplyService();
             var reply = replyService.GetReplyById(id);

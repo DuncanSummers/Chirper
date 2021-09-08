@@ -52,20 +52,39 @@ namespace Chirper.Services
             }
         }
 
+        //public IEnumerable<ReplyList> GetReplyById(int id)
+        //{
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        var entity =
+        //            ctx.Replies
+        //            .Where(e => e.CommentId == id && e.AuthorId == _authorId)
+        //            .Select(
+        //                e => new ReplyList
+        //                {
+        //                    ReplyId = entity.ReplyId,
+        //                    Text = e.Text,
+        //                    CommentId = e.CommentId,
+        //                    Comment = e.Comment,
+        //                });
+        //        return entity.ToArray();
+
+        //    }
+        //}
         public ReplyDetail GetReplyById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
-                    ctx.Replies
-                    .Single(e => e.ReplyId == id && e.AuthorId == _authorId);
-                return new ReplyDetail
-                {
-                    ReplyId = entity.ReplyId,
-                    Text = entity.Text,
-                    CommentId = entity.CommentId,
-                    Comment = entity.Comment,
-                };
+                    ctx
+                        .Replies
+                        .Single(e => e.ReplyId == id && e.AuthorId == _authorId);
+                return
+                    new ReplyDetail()
+                    {
+                        CommentId = entity.ReplyId,
+                        Text = entity.Text
+                    };
             }
         }
         public bool UpdateReply(ReplyEdit model)
