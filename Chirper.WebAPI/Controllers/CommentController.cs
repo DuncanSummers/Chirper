@@ -47,5 +47,15 @@ namespace Chirper.WebAPI.Controllers
             return Ok();
         }
 
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateCommentService();
+
+            if (!service.DeleteComment(id))
+                return InternalServerError();
+
+            return Ok();
+        }
+
     }
 }
